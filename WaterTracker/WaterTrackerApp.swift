@@ -10,8 +10,9 @@ import SwiftUI
 @main
 struct WaterTrackerApp: App {
     var body: some Scene {
-        WindowGroup {
+        MenuBarExtra("Water Tracker", systemImage: "waterbottle.fill") {
             ContentView()
         }
+        .menuBarExtraStyle(.window)
     }
 }
