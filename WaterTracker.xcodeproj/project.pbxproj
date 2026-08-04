@@ -17,9 +17,22 @@
 		9C91882430224D1900DB2977 /* WaterTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaterTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		9C657ED7302278FF00BB0E8C /* Exceptions for "WaterTrackerPhone" folder in "WaterTrackerPhone" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 9C657EC330224DF800BB0E8C /* WaterTrackerPhone */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		9C657EC530224DF800BB0E8C /* WaterTrackerPhone */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				9C657ED7302278FF00BB0E8C /* Exceptions for "WaterTrackerPhone" folder in "WaterTrackerPhone" target */,
+			);
 			path = WaterTrackerPhone;
 			sourceTree = "<group>";
 		};
@@ -204,11 +217,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WaterTrackerPhone/WaterTrackerPhone.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FQZ5PHZ7BP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WaterTrackerPhone/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Used to read your water intake.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Used to log water intake you record in the app.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -238,11 +255,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WaterTrackerPhone/WaterTrackerPhone.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FQZ5PHZ7BP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WaterTrackerPhone/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Used to read your water intake.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Used to log water intake you record in the app.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
