@@ -22,8 +22,12 @@ public final class SupabaseService: Sendable {
     private let client: SupabaseClient
     public static let shared = SupabaseService()
     
-    public func fetchEntries() async throws -> [WaterEntry] {
-        try await client.from("entries").select().order("logged_at", ascending: false).execute().value
+    public func fetchEntries(since: Date? = nil) async throws -> [WaterEntry] {
+        var query = client.from("entries").select()
+        if let since {
+            query = query.gte("logged_at", value: since)
+        }
+        return try await query.order("logged_at", ascending: false).execute().value
     }
     
     public func logEntry(amountMl: Int, source: Source) async throws {

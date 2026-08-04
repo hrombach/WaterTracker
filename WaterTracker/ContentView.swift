@@ -10,6 +10,7 @@ import WaterTrackerKit
 
 struct ContentView: View {
     @State private var entries: [WaterEntry] = []
+    @State private var amountToLog: Int = 350
     
     private var totalML: Int {
         entries.map(\.amountMl).reduce(0, +)
@@ -17,10 +18,11 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
-            Text("\(totalML) ml")
-            Button("Log 250ml") {
+            Text("Total: \(totalML)ml")
+            Stepper("\(amountToLog)ml", value: $amountToLog, in: 50...2000, step: 50)
+            Button("Log \(amountToLog)ml") {
                 Task {
-                    try? await SupabaseService.shared.logEntry(amountMl: 250, source: .mac)
+                    try? await SupabaseService.shared.logEntry(amountMl: amountToLog, source: .mac)
                     await loadEntries()
                 }
             }
@@ -32,7 +34,7 @@ struct ContentView: View {
     }
     
     private func loadEntries() async {
-        entries = (try? await SupabaseService.shared.fetchEntries()) ?? []
+        entries = (try? await SupabaseService.shared.fetchEntries(since: Calendar.current.startOfDay(for: Date()))) ?? []
     }
 }
 
