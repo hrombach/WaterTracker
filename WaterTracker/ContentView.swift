@@ -11,6 +11,7 @@ import WaterTrackerKit
 struct ContentView: View {
     @State private var entries: [WaterEntry] = []
     @State private var amountToLog: Int = 350
+    @State private var errorMessage: String?
     
     private var totalML: Int {
         entries.map(\.amountMl).reduce(0, +)
@@ -22,9 +23,18 @@ struct ContentView: View {
             Stepper("\(amountToLog)ml", value: $amountToLog, in: 50...2000, step: 50)
             Button("Log \(amountToLog)ml") {
                 Task {
-                    try? await SupabaseService.shared.logEntry(amountMl: amountToLog, source: .mac)
+                    do {
+                        try await SupabaseService.shared.logEntry(amountMl: amountToLog, source: .mac)
+                        errorMessage = nil
+                    } catch {
+                        errorMessage = error.localizedDescription
+                    }
                     await loadEntries()
                 }
+            }
+            if let errorMessage {
+                Text(errorMessage)
+                    .foregroundStyle(.red)
             }
         }
         .padding()
@@ -34,7 +44,11 @@ struct ContentView: View {
     }
     
     private func loadEntries() async {
-        entries = (try? await SupabaseService.shared.fetchEntries(since: Calendar.current.startOfDay(for: Date()))) ?? []
+        do {
+            entries = try await SupabaseService.shared.fetchEntries(since: Calendar.current.startOfDay(for: Date()))
+        } catch {
+            errorMessage = error.localizedDescription
+        }
     }
 }
 
