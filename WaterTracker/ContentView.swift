@@ -12,14 +12,19 @@ struct ContentView: View {
     @State private var entries: [WaterEntry] = []
     @State private var amountToLog: Int = 350
     @State private var errorMessage: String?
-    
+    @State private var isLoading = true
+
     private var totalML: Int {
         entries.map(\.amountMl).reduce(0, +)
     }
 
     var body: some View {
         VStack {
-            Text("Total: \(totalML)ml")
+            if isLoading {
+                ProgressView()
+            } else {
+                Text("Total: \(totalML)ml")
+            }
             Stepper("\(amountToLog)ml", value: $amountToLog, in: 50...2000, step: 50)
             Button("Log \(amountToLog)ml") {
                 Task {
@@ -49,6 +54,7 @@ struct ContentView: View {
         } catch {
             errorMessage = error.localizedDescription
         }
+        isLoading = false
     }
 }
 
