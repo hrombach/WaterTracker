@@ -14,6 +14,8 @@
 /* Begin PBXFileReference section */
 		9C657EC430224DF800BB0E8C /* WaterTrackerPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaterTrackerPhone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C657ECF30224E7900BB0E8C /* WaterTrackerKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = WaterTrackerKit; path = Packages/WaterTrackerKit; sourceTree = "<group>"; };
+		9C657EDC30277E4400BB0E8C /* Secrets.xcconfig.tpl */ = {isa = PBXFileReference; lastKnownFileType = text; path = Secrets.xcconfig.tpl; sourceTree = "<group>"; };
+		9C657EE03027810100BB0E8C /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		9C91882430224D1900DB2977 /* WaterTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaterTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -24,6 +26,13 @@
 				Info.plist,
 			);
 			target = 9C657EC330224DF800BB0E8C /* WaterTrackerPhone */;
+		};
+		9C657EE3302786A100BB0E8C /* Exceptions for "WaterTracker" folder in "WaterTracker" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 9C91882330224D1900DB2977 /* WaterTracker */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -38,6 +47,9 @@
 		};
 		9C91882630224D1900DB2977 /* WaterTracker */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				9C657EE3302786A100BB0E8C /* Exceptions for "WaterTracker" folder in "WaterTracker" target */,
+			);
 			path = WaterTracker;
 			sourceTree = "<group>";
 		};
@@ -73,6 +85,8 @@
 		9C91881B30224D1900DB2977 = {
 			isa = PBXGroup;
 			children = (
+				9C657EE03027810100BB0E8C /* Secrets.xcconfig */,
+				9C657EDC30277E4400BB0E8C /* Secrets.xcconfig.tpl */,
 				9C657ECF30224E7900BB0E8C /* WaterTrackerKit */,
 				9C91882630224D1900DB2977 /* WaterTracker */,
 				9C657EC530224DF800BB0E8C /* WaterTrackerPhone */,
@@ -214,6 +228,7 @@
 /* Begin XCBuildConfiguration section */
 		9C657ECC30224DF900BB0E8C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C657EE03027810100BB0E8C /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -252,6 +267,7 @@
 		};
 		9C657ECD30224DF900BB0E8C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C657EE03027810100BB0E8C /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -411,6 +427,7 @@
 		};
 		9C91883030224D1A00DB2977 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C657EE03027810100BB0E8C /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -433,6 +450,7 @@
 				ENABLE_RESOURCE_ACCESS_USB = NO;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WaterTracker/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -453,6 +471,7 @@
 		};
 		9C91883130224D1A00DB2977 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C657EE03027810100BB0E8C /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -475,6 +494,7 @@
 				ENABLE_RESOURCE_ACCESS_USB = NO;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WaterTracker/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

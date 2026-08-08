@@ -26,9 +26,6 @@ let package = Package(
             name: "WaterTrackerKit",
             dependencies: [
                 .product(name: "Supabase", package: "supabase-swift"),
-            ],
-            exclude: [
-                "SupabaseConfig.example.swift",
             ]
         ),
 
