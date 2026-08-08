@@ -16,6 +16,7 @@
 		9C657ECF30224E7900BB0E8C /* WaterTrackerKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = WaterTrackerKit; path = Packages/WaterTrackerKit; sourceTree = "<group>"; };
 		9C657EDC30277E4400BB0E8C /* Secrets.xcconfig.tpl */ = {isa = PBXFileReference; lastKnownFileType = text; path = Secrets.xcconfig.tpl; sourceTree = "<group>"; };
 		9C657EE03027810100BB0E8C /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
+		9C79C09D302793BC006A5DD6 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		9C91882430224D1900DB2977 /* WaterTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaterTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -85,6 +86,7 @@
 		9C91881B30224D1900DB2977 = {
 			isa = PBXGroup;
 			children = (
+				9C79C09D302793BC006A5DD6 /* .swiftlint.yml */,
 				9C657EE03027810100BB0E8C /* Secrets.xcconfig */,
 				9C657EDC30277E4400BB0E8C /* Secrets.xcconfig.tpl */,
 				9C657ECF30224E7900BB0E8C /* WaterTrackerKit */,
@@ -118,6 +120,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				9C79C0A230279613006A5DD6 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				9C657EC530224DF800BB0E8C /* WaterTrackerPhone */,
@@ -141,6 +144,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				9C79C0A03027960C006A5DD6 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				9C91882630224D1900DB2977 /* WaterTracker */,
@@ -180,6 +184,9 @@
 			);
 			mainGroup = 9C91881B30224D1900DB2977;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				9C79C09E30279599006A5DD6 /* XCRemoteSwiftPackageReference "SwiftLint" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 9C91882530224D1900DB2977 /* Products */;
 			projectDirPath = "";
@@ -224,6 +231,17 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9C79C0A03027960C006A5DD6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 9C79C09F3027960C006A5DD6 /* SwiftLintBuildToolPlugin */;
+		};
+		9C79C0A230279613006A5DD6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 9C79C0A130279613006A5DD6 /* SwiftLintBuildToolPlugin */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		9C657ECC30224DF900BB0E8C /* Debug */ = {
@@ -545,6 +563,17 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		9C79C09E30279599006A5DD6 /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/SwiftLint.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.65.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		9C657ED13022673800BB0E8C /* WaterTrackerKit */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -553,6 +582,16 @@
 		9C657ED33022675E00BB0E8C /* WaterTrackerKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = WaterTrackerKit;
+		};
+		9C79C09F3027960C006A5DD6 /* SwiftLintBuildToolPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9C79C09E30279599006A5DD6 /* XCRemoteSwiftPackageReference "SwiftLint" */;
+			productName = "plugin:SwiftLintBuildToolPlugin";
+		};
+		9C79C0A130279613006A5DD6 /* SwiftLintBuildToolPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9C79C09E30279599006A5DD6 /* XCRemoteSwiftPackageReference "SwiftLint" */;
+			productName = "plugin:SwiftLintBuildToolPlugin";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -47,7 +47,7 @@ struct ContentView: View {
             await loadEntries()
         }
     }
-    
+
     private func loadEntries() async {
         do {
             entries = try await SupabaseService.shared.fetchEntries(since: Calendar.current.startOfDay(for: Date()))
