@@ -41,6 +41,10 @@ struct ContentView: View {
                 Text(errorMessage)
                     .foregroundStyle(.red)
             }
+            Divider()
+            Button("Quit") {
+                NSApplication.shared.terminate(nil)
+            }
         }
         .padding()
         .task {
