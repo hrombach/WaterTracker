@@ -35,7 +35,16 @@ public final class SupabaseService: Sendable {
         try await client.from("entries").insert(payload).execute()
     }
 
-    private init() {
-        client = SupabaseClient(supabaseURL: SupabaseConfig.url, supabaseKey: SupabaseConfig.publishableKey)
+    package init(
+        supabaseURL: URL = SupabaseConfig.url,
+        supabaseKey: String = SupabaseConfig.publishableKey,
+        session: URLSession = .shared
+    ) {
+        let options = SupabaseClientOptions(global: .init(session: session))
+        client = SupabaseClient(
+            supabaseURL: supabaseURL,
+            supabaseKey: supabaseKey,
+            options: options
+        )
     }
 }

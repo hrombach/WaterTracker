@@ -18,7 +18,8 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/supabase/supabase-swift.git", from: "2.0.0"),
-        .package(url: "https://github.com/realm/SwiftLint.git", from: "0.55.1")
+        .package(url: "https://github.com/realm/SwiftLint.git", from: "0.55.1"),
+        .package(url: "https://github.com/WeTransfer/Mocker", from: "3.0.0"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -34,7 +35,10 @@ let package = Package(
         ),
         .testTarget(
             name: "WaterTrackerKitTests",
-            dependencies: ["WaterTrackerKit"]
+            dependencies: [
+                "WaterTrackerKit",
+                "Mocker",
+            ]
         ),
 
     ],
