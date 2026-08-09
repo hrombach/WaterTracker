@@ -89,4 +89,34 @@ struct SupabaseServiceTests {
         #expect(entry?.loggedAt == expectedDate)
     }
     
+    @Test func logEntry() async throws {
+        let configuration = URLSessionConfiguration.ephemeral
+        configuration.protocolClasses = [MockingURLProtocol.self]
+        let session = URLSession(configuration: configuration)
+        nonisolated(unsafe) var receivedBody: [String: Any]?
+        
+        var mock = Mock(
+            url: try #require(URL(string: "https://test.supabase.example/rest/v1/entries")),
+            ignoreQuery: true,
+            contentType: .json,
+            statusCode: 201,
+            data: [.post: Data()]
+        )
+
+        mock.onRequestHandler = OnRequestHandler(jsonDictionaryCallback: { _, body in
+            receivedBody = body
+        })
+        mock.register()
+
+        let service = SupabaseService(
+            supabaseURL: try #require(URL(string: "https://test.supabase.example")),
+            supabaseKey: "test-key",
+            session: session
+        )
+        
+        try await service.logEntry(amountMl: 1000, source: .mac)
+        
+        #expect(receivedBody?["amount_ml"] as? Int == 1000)
+        #expect(receivedBody?["source"] as? String == "mac")
+    }
 }
