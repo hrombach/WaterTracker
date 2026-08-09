@@ -32,6 +32,10 @@ let package = Package(
                 .plugin(name: "SwiftLintBuildToolPlugin", package: "SwiftLint")
             ]
         ),
+        .testTarget(
+            name: "WaterTrackerKitTests",
+            dependencies: ["WaterTrackerKit"]
+        ),
 
     ],
     swiftLanguageModes: [.v6]
